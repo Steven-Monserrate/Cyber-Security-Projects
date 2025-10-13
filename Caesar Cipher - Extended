@@ -1,0 +1,84 @@
+"""
+Caesar Cipher (Case-Preserving Extended Version)
+Original code by Al Sweigart (al@inventwithpython.com)
+Modified and expanded by Steven Monserrate
+Adds support for lowercase, numbers, punctuation, and preserves case automatically.
+"""
+
+try:
+    import pyperclip
+except ImportError:
+    pyperclip = None
+
+import string
+
+# Define allowed symbols (letters, digits, punctuation, space):
+SYMBOLS = string.ascii_letters + string.digits + string.punctuation + ' '
+
+print('Case-Preserving Caesar Cipher')
+print('Supports uppercase, lowercase, digits, punctuation, and spaces.')
+print()
+
+# Ask user for encryption or decryption mode:
+while True:
+    print('Do you want to (e)ncrypt or (d)ecrypt?')
+    response = input('> ').lower()
+    if response.startswith('e'):
+        mode = 'encrypt'
+        break
+    elif response.startswith('d'):
+        mode = 'decrypt'
+        break
+    print('Please enter the letter e or d.')
+
+# Ask user for key:
+while True:
+    maxKey = len(string.ascii_uppercase) - 1
+    print(f'Please enter the key (0 to {maxKey}) to use.')
+    response = input('> ')
+    if not response.isdecimal():
+        continue
+
+    key = int(response)
+    if 0 <= key <= maxKey:
+        break
+
+# Ask user for message:
+print(f'Enter the message to {mode}.')
+message = input('> ')
+
+# Build translation:
+translated = []
+
+for symbol in message:
+    if symbol.isalpha():  # Handle letters separately for case preservation
+        alpha = string.ascii_uppercase if symbol.isupper() else string.ascii_lowercase
+        num = alpha.index(symbol)
+        if mode == 'encrypt':
+            num = (num + key) % 26
+        else:
+            num = (num - key) % 26
+        translated.append(alpha[num])
+    elif symbol in string.digits:
+        num = string.digits.index(symbol)
+        if mode == 'encrypt':
+            num = (num + key) % 10
+        else:
+            num = (num - key) % 10
+        translated.append(string.digits[num])
+    elif symbol in string.punctuation or symbol == ' ':
+        # Optional: You can choose to leave punctuation/spaces unaltered
+        translated.append(symbol)
+    else:
+        # If symbol isn't recognized, just append it as-is
+        translated.append(symbol)
+
+translated_text = ''.join(translated)
+
+# Output result:
+print('\nResult:')
+print(translated_text)
+
+if pyperclip:
+    pyperclip.copy(translated_text)
+    print(f'\nFull {mode}ed text copied to clipboard.')
