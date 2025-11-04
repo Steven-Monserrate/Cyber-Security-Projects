@@ -29,5 +29,8 @@ ls -a
 ls -la .project_x.txt
 #confirmed that both the owner and the group have the incorrect permissions#
 #use chmod to change permissions so that both owner and group can read but not write#
-chmod u-w, g-w .project_x.txt
-#lab broke due to google error and was unable to continue.#
+chmod u-w,g-w,g+r .project_x.txt
+#permission changes#
+ls -l
+chmod g-x drafts
+
