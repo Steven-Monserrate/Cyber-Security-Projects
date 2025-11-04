@@ -1,0 +1,33 @@
+#This project is a part of the Google Cyber Security Certificate#
+/home/researcher2
+/home/researcher2/projects
+ls
+#confirms projects#
+ls -l projects
+#shows 20 contents/permissions#
+#confirm that research_team is the owner of the content and has full permissions drwx#
+#check for hidden files#
+ls -a /home/researcher2/projects
+#confirm project_x.txt is a hidden file#
+#check to confirm if any file in the projects directory has write permissions for the owner type of other#
+cd /home/researcher2/projects
+ls -l
+#display files#
+find . -type f -perm -002
+#project_k.txt" displayed
+chmod o-w project_k.txt
+#completed to prevent owner type of other from having write permissions#
+#reviewed project_m.txt to ensure that it does not have readable or writable by the group or other; only the user should have these permissions on this file#
+rw-r
+#confirmed that project_m.txt is group read only#
+#need to remove group permissions to project_m.text to prevent reading#
+chmod g-r project_m.txt
+#group permissions for reading cancelled#
+#The file .project_x.txt is a hidden file that has been archived and should not be written to by anyone. (The user and group should still be able to read this file.)#
+#confirm which owner type has incorrect write permissions#
+ls -a
+ls -la .project_x.txt
+#confirmed that both the owner and the group have the incorrect permissions#
+#use chmod to change permissions so that both owner and group can read but not write#
+chmod u-w, g-w .project_x.txt
+#lab broke due to google error and was unable to continue.#
