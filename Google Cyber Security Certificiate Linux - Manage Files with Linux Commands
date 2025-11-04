@@ -1,0 +1,49 @@
+# Code project for the Google Cyber Security Certificate#
+## Code project uses Linux to manage files##
+
+/home/analyst
+#recognizes that there are no longs#
+mkdir "/home/analyst/logs"
+#log added#
+ls /home/analyst
+#sees that log is added#
+#current subdirectories include - logs, notes, reports, temp#
+#temp needs to be removed#
+rmdir "/home/analyst/temp"
+#temp removed#
+ls /home/analyst
+#confirms temp removed#
+#needs to move Q3patches.txt file from the notes directory to the reports directory#
+/home/analyst/reports
+#is a dictionary#
+ls /home/analyst/notes
+#returns Q3patches.txt, tempnotes.txt#
+mv /home/analyst/notes/Q3patches.txt /home/analyst/reports
+ls
+#file confirmed moved#
+#need to remove tempnotes.txt from notes#
+cd /home/analyst/notes
+ls
+#confirms file is there#
+rm temptnotes.txt
+#file removed#
+ls
+#confirms file is removed#
+#need to create new file "tasks.txt" in the /home/analyst/notes directory#
+ls
+touch tasks.txt
+ls
+#new file confirmed created in notes#
+#need to edit file to describe tasks completed#
+nano tasks.txt
+  Completed tasks
+  1. Managed file structure in /home/analyst
+#pasted into file#
+Crtl + X
+Y
+Enter
+clear
+nano tasks.txt
+#confirms file information is still there#
+X
+clear
