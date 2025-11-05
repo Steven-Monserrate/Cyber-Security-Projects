@@ -1,0 +1,24 @@
+#This project is from the Google Cybersecurity Certificate#
+#Goal 1 - Use SQL to query for an employee's device#
+SELECT *
+FROM machines;
+SELECT device_id, email_client FROM machines;
+#Answer - Email Client 2#
+SELECT device_id, operating_system, OS_patch_date FROM machines;
+#Answer - 2021-09-01#
+#Goal 2 - Investigate login activities#
+#Note - lab crashed and wasn't able to continue despite several restarts. Correct coding is listed below#
+SELECT event_id, country FROM log_in_attempts
+#No log in attempts were made from Australia#
+SELECT username, login_date, login_time FROM log_in_attempts
+#jrafael#
+SELECT* FROM log_in_attempts
+#Goal 3 - use the ORDER BY keyword to sequence a query#
+SELECT*
+FROM log_in_attempts
+ORDER BY login_date;
+#ivelasco on 2022-05-08 is first#
+SELECT*
+FROM log_in_attempts
+ORDER BY login_date, login_time
+#Answer - bsand at 00:19:11#
