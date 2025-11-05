@@ -1,0 +1,19 @@
+#This project is part of the Google Cybersecurity Certificate#
+#Add and manage users in Linux#
+#Goal 1 - Add user account to Linux#
+/home/analyst
+sudo adduser researcher9
+sudo usermod -g research_team researcher9
+#New user added. User assigned to research_team#
+#Goal 2 - Assign work to researcher9 from researcher2 directory#
+/home/researcher2/projects
+sudo chown researcher9 /home/researcher2/projects/project_r.txt
+#Project assigned to researcher9#
+#Goal 3 - Add researcher9 to subgroup - sales_team#
+sudo usermod -a -G sales_team researcher9
+#researcher9 added to secondary group sales_team#
+#Goal 4 - researcher9 has left the company and their accounts must be removed#
+sudo userdel researcher9
+#Group researcher9 is not deleted. Further work required#
+sudo groupdel researcher9
+#researcher9 group deleted#
