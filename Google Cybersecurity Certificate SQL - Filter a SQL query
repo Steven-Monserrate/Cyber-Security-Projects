@@ -1,0 +1,27 @@
+#This project is a part of the Google Cybersecurity Certificate#
+#Goal 1 - List all organization machines#
+SELECT device_id, operating_system FROM machines;
+#200 devices are listed in this table#
+Goal 2 - Retrieve a list of the machines with OS 2#
+SELECT device_id, operating_system
+FROM machines
+WHERE operating_system = 'OS 2';
+#Answer - 80#
+#Goal 3 - List employees in specific departments#
+SELECT*
+FROM employees
+WHERE department = 'Finance'
+#Answer - 1003#
+SELECT*
+FROM employees
+WHERE department = 'SALES'
+#Answer = 33#
+#Goal 4 - Identify employee machines#
+SELECT*
+FROM employees
+WHERE office = 'South-109';
+#ANSWER jlansky#
+SELECT*
+FROM employees
+WHERE office LIKE 'South%';
+#Answer - Finance#
