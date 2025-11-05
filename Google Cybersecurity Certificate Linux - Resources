@@ -1,0 +1,23 @@
+#This project is a part of the Google Cybersecurity Certificate#
+#Goal 1 - Use Linux to figure out what cat does#
+whatis cat
+#Complete description#
+#More details about cat#
+man cat
+#More details displayed. Answer - n#
+#Discover which command prints out the first part of the file#
+apropos -a first part of file
+#head#
+#Goal 2 - use a command to figure out how to put an expiration date on a useradd#
+man useradd
+#requires spamming enter/return#
+e - puts an expiration date on a temp account
+#Goal 3 - figure out which command rm or rmdir removes only empty directories#
+man rm
+#Does not meet goals#
+man rmdir
+#Removes only empty directories#
+#Can also use whatis command to get a less detailed description#
+#Goal 4 - Find out what command you need to use to make a new group#
+apropos -a create new group
+groupadd
