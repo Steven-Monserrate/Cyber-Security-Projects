@@ -1,0 +1,28 @@
+#This project is from the Google Cybersecurity Certificate#
+#Goal 1 - Match employees to their machines#
+SELECT*
+FROM machines;
+#Complete the query to perform an inner join between the machines and employees tables on the device_id column.#
+SELECT*
+FROM machines
+INNER JOIN employees ON
+machines.device_id = employees.device_id;
+#Answer 185#
+#Goal 2 - Return more data#
+SELECT*
+FROM machines
+LEFT JOIN employees ON
+machines.device_id = employees.device_id;
+#Answer - Null#
+#Run a right join to connect machines and employees tables#
+SELECT*
+FROM machines
+RIGHT JOIN employees ON
+machines.device_id = employees.device_id;
+#Answer - Final column username - Null#
+#Goal 3 - Retrieve login attempt data#
+#Use an inner join on the log_in_attempts tables and employees tables and link them to the username column#
+SELECT*
+FROM employees
+INNER JOIN log_in_attempts ON employees.username = log_in_attempts.username;
+#Answer - 200 records returned by the inner join#
