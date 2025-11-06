@@ -1,0 +1,20 @@
+#This project is from the Google Cybersecurity Certificate#
+#Activity - Decrypt an encrypted message#
+#Goal 1 - Read the contents of a file#
+/home/analyst
+ls
+#Two files - Q1.encrypted and README.txt, and a subdirectory caesar, are listed#
+cat README.txt
+#Advises that the caesar subdirectory contains a hidden file#
+#Goal 2 - Find a hidden file#
+cd caesar
+ls -a
+#Reveals .leftShift3#
+cat .leftShift3
+cat .leftShift3 | tr "d-za-cD-ZA-C" "a-zA-Z"
+cd ~
+#Goal 3 - Decrypt a file#
+openssl aes-256-cbc -pbkdf2 -a -d -in Q1.encrypted -out Q1.recovered -k ettubrute
+ls
+cat Q1.recovered
+#If you are seeing this, you have passed and can access the file!#
