@@ -1,0 +1,19 @@
+#This project is from the Google Cybersecurity Certificate#
+#Goal 1 - Generate hashes for files#
+/home/analyst
+ls
+#Two files appear - file1.txt, file2.txt#
+cat file1.txt
+cat file2.txt
+#Answer - Yes#
+sha256sum file1.txt
+sha256sum file2.txt
+#Answer - No#
+#Goal 2 - Compare hashes#
+sha256sum file1.txt >> file1hash
+sha256sum file2.txt >> file2hash
+cat file1.hash
+cat file2hash
+#Although both files seemed the same in the beginning, the hashes written to both files are completely different#
+cmp file1hash file2hash
+#Proves that both files are different#
