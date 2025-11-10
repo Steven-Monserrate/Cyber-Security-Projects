@@ -1,0 +1,29 @@
+#This project is from the Google Cybersecurity Certificate#
+#Goal 1 - Identify network interfaces#
+sudo ifconfig
+sudo tcpdump - D
+#Goal 2 - Inspect the network traffic of a network interface with tcpdump#
+sudo tcpdump -i eth0 -v -c5
+#Goal 3 - Capture network traffic with tcpdump#
+sudo tcpdump -i eth0 -nn -c9 port 80 -w capture.pcap &
+curl opensource.google.com
+ls -l capture.pcap
+#Goal 4 - Filter the captured packet data#
+sudo tcpdump -nn -r capture.pcap -v
+sudo tcpdump -nn -r capture.pcap -X
+#Questions -1#
+#What command would you use to capture 3 packets on any interface with the verbose option?#
+#Answer -1#
+#sudo tcpdump -c3 -i any v#
+#Questions -2#
+#What does the -i option indicate?#
+#Answer -2#
+#The network interface to monitor#
+#Questions -3#
+#What type of information does the -v option include?#
+#Answer -3#
+#Verbose information#
+#Questions -4#
+#What tcpdump command can you use to identify the interfaces that are available to perform a packet capture on?#
+#Answer -4#
+#sudo tcpdump -D#
